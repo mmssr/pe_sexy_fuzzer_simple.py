@@ -1,5 +1,4 @@
 import pefile
-import random
 import os
 import secrets
 
