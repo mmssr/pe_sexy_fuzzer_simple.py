@@ -1,5 +1,6 @@
 import pefile
 import random
+import os
 
 # Load the PE file.
 pe = pefile.PE("path/to/pe/file.exe")
@@ -22,5 +23,16 @@ for section in pe.sections:
   try:
     section.Name = name
     pe.write("path/to/output/file.exe")
+
+
+# Define the path to the PE file.
+filepath = "path/to/output/file.exe"
+
+
+# Try to run the PE file.
+try:
+  os.startfile(filepath)
+except Exception as e:
+  # Output the error to the output file.
   except Exception as e:
     print("Error:", e)
