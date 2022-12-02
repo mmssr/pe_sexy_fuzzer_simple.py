@@ -26,12 +26,10 @@ for section in pe.sections:
   except Exception as e:
     print("Error", e, "\n")
 
-# Define the path to the PE file.
+# Try to run the PE file.
 filepath = "path/to/output/file.exe"
 
-# Try to run the PE file.
 try:
   os.startfile(filepath)
 except Exception as e:
-  # Output the error to the output file.
     print("Error:", e, "\n")
