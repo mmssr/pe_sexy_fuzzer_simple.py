@@ -17,17 +17,15 @@ def generate_section_name():
 for section in pe.sections:
   # Generate a random section name.
   name = generate_section_name()
-  print("Fuzzing section name:", section.Name, "->", name)
+  print("Fuzzing section name:", section.Name, "->", name, "\n")
 
-  # Try to load the PE file with the new section name.
+  # Try to save the PE file with the new section name.
   try:
     section.Name = name
     pe.write("path/to/output/file.exe")
 
-
 # Define the path to the PE file.
 filepath = "path/to/output/file.exe"
-
 
 # Try to run the PE file.
 try:
@@ -35,4 +33,4 @@ try:
 except Exception as e:
   # Output the error to the output file.
   except Exception as e:
-    print("Error:", e)
+    print("Error:", e, "\n")
