@@ -1,16 +1,16 @@
 import pefile
 import random
 import os
+import secrets
 
 # Load the PE file.
-pe = pefile.PE("path/to/pe/file.exe")
+pe = pefile.PE("file.exe")
 
 # Generate a random section name.
 def generate_section_name():
   # Generate a random string of 8 characters.
   name = ""
-  for i in range(8):
-    name += chr(random.randint(32, 126))
+  name = secrets.token_bytes(8)
   return name
 
 # Fuzz the PE file's section names.
@@ -22,14 +22,17 @@ for section in pe.sections:
   # Try to save the PE file with the new section name.
   try:
     section.Name = name
-    pe.write("path/to/output/file.exe")
+    pe.write("file.exe")
   except Exception as e:
     print("Error", e, "\n")
 
-# Try to run the PE file.
-filepath = "path/to/output/file.exe"
+# Define the path to the PE file.
+pe.close
+filepath = "file.exe"
 
+# Try to run the PE file.
 try:
   os.startfile(filepath)
 except Exception as e:
+  # Output the error to the output file.
     print("Error:", e, "\n")
