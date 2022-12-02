@@ -23,6 +23,8 @@ for section in pe.sections:
   try:
     section.Name = name
     pe.write("path/to/output/file.exe")
+  except Exception as e:
+    print("Error", e, "\n")
 
 # Define the path to the PE file.
 filepath = "path/to/output/file.exe"
@@ -32,5 +34,4 @@ try:
   os.startfile(filepath)
 except Exception as e:
   # Output the error to the output file.
-  except Exception as e:
     print("Error:", e, "\n")
