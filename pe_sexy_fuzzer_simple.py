@@ -9,7 +9,6 @@ pe = pefile.PE("file.exe")
 # Generate a random section name.
 def generate_section_name():
     # Generate a random string of 8 characters.
-    name = ""
     name = secrets.token_bytes(8)
     return name
 
